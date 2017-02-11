@@ -1,7 +1,6 @@
 # Parse wsdl file using pom, ant, wsimport
 
 The interface to a SOAP web service is captured in a WSDL. JAXB provides an easy means 
-
 to generate Java classes from a WSDL (or rather: the XSD contained in the <Types/> 
 
 section of the WSDL). 
@@ -33,3 +32,8 @@ file. The pom contains 'maven-antrun-plugin' to invoke the ant target. So to gen
 
 the wsdl client, this maven command needs to be executed: 'mvn package'.
 
+Now to invoke the web service from the code, you need to add and 
+use WebServiceGatewaySupport.
+Starting this microservice actually makes a call to Soap service and prints the response. 
+
+ 

@@ -29,7 +29,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -57,7 +60,7 @@
 								<property name="compile_classpath" refid="maven.compile.classpath" />
 								<property name="outputDir" value="${project.build.outputDirectory}" />
 								<property name="sourceDir" value="${project.build.sourceDirectory}" />
-								<ant antfile="${basedir}/build.xml"	target="wsimport-target" />
+								<ant antfile="${basedir}/build.xml" target="wsimport-target" />
 							</target>
 						</configuration>
 					</execution>
