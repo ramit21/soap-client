@@ -22,8 +22,11 @@ com.webservice -Xnocompile -verbose
 The flags used in the above command:
 
 -keep: keep the generated java files (By default they are generated and removed)
+
 -d: location of generated files
+
 -p: package for the generated files (this overrides the default from wsdl)
+
 -Xnocompile: dont generate .class files
 
 In this project, an ANT target has been configured to invoke wsimport on the wsdl 
