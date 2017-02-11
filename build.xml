@@ -1,0 +1,11 @@
+<project default="wsimport-target">
+	<property name="wsdl.location" value="./src/main/resources/stockquote.wsdl" />
+
+	<target name="wsimport-target">
+		<echo message="Ant wsimport target invoked, with JAVA_HOME = ${java.home}" />
+		<exec executable="${java.home}\..\bin\wsimport.exe">
+			<arg line="${wsdl.location} -keep -d ./src/main/java -p com.webservice -Xnocompile -verbose" />
+		</exec>
+	</target>
+	
+</project>
