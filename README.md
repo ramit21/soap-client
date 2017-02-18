@@ -1,4 +1,6 @@
-# Parse wsdl file using pom, ant, wsimport
+# Consuming and creating a SOAP Web service
+
+## Consuming a SOAP web service
 
 The interface to a SOAP web service is captured in a WSDL. JAXB provides an easy means 
 to generate Java classes from a WSDL (or rather: the XSD contained in the <Types/> 
@@ -40,4 +42,33 @@ use WebServiceGatewaySupport.
 
 Starting this microservice actually makes a call to Soap service and prints the response. 
 
+=========================================================================================
+
+## Creating a SOAP web service
  
+ 
+Add dependency in pom for spring-boot-starter-web-services, wsdl4j
+
+Create schema file (Country.xsd) in the resources that Spring-WS will export automatically as a WSDL.
+ 
+Add jaxb2-maven-plugin plugin in pom to create domain classes from the schema.
+
+Create repository (CountryRepository.java) class that returns data to the soap service.
+
+Create country service endpoint to handle incoming requests (CountryEndpoint.java).
+
+Configure web service beans (WebServiceConfig.java)
+
+Start the application, and access the wsdl file at http://localhost:8090/ws/countries.wsdl
+
+Using soap ui, make a hit to the web service with following request:
+
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+		  xmlns:gs="http://spring.io/guides/gs-producing-web-service">
+		   <soapenv:Header/>
+		   <soapenv:Body>
+			  <gs:getCountryRequest>
+				 <gs:name>Spain</gs:name>
+			  </gs:getCountryRequest>
+		   </soapenv:Body>
+	</soapenv:Envelope>
