@@ -22,8 +22,12 @@ public class ClientApplication {
 			@Override
 			public void run(String... strings) throws Exception {
 				String ticker = "MSFT";
-				GetQuoteResponse response = quoteClient.getQuote(ticker);
-				System.err.println(response.getGetQuoteResult());
+				try{
+					GetQuoteResponse response = quoteClient.getQuote(ticker);
+					System.err.println("Response = " + response.getGetQuoteResult());
+				} catch (Exception e){
+					System.err.println("Error = " + e.getMessage());
+				}
 			}
 		};
 	}
